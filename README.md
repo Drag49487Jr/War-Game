@@ -15,4 +15,5 @@
 
 <h2>WINNER</h2>
     One player will have a score of 52 while the other player has a score of 0.
-    
+
+Link to Game Display => https://i.imgur.com/TaucgDa.png
