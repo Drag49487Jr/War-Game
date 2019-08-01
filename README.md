@@ -1,9 +1,9 @@
-War Game
+<h1>War Game</h1>
 
-SETUP
-    This is a two player game that consist of a deck of 52 cards. The deck will shuffle itself then give each player 26 cards. The cards will be face down the entire time. There will be a scoreboard to keep track how many cards each player has left.
+<h2>SETUP</h2>
+    <p> This is a two player game that consist of a deck of 52 cards. The deck will shuffle itself then give each player 26 cards. The cards will be face down the entire time. There will be a scoreboard to keep track how many cards each player has left.<p>
 
-HOW TO PLAY
+<h2>HOW TO PLAY</h2>
     1) Both players flip their card on top.
     2) The player who flipped the higher a card wins both cards which is then added to thier deck.
     3) This process is repeated until both players flip a card that have the same card, therefore WAR is initiated. 
@@ -13,5 +13,6 @@ HOW TO PLAY
     7) However if both players flip a card that have the same card, repeat steps 4-6 until one player flips a card higher than the other player.
     8) WAR will end then the game will resume normally until both players flip the same card which then war will re-initiate once again and this process will repeat until one player gains 52 cards.
 
-WINNER
+<h2>WINNER</h2>
     One player will have a score of 52 while the other player has a score of 0.
+    
