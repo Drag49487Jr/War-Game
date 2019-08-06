@@ -111,21 +111,25 @@
   background-image: url("../images/diamonds/diamonds-r02.svg"); }
 
 .card.hearts.A,
+.card.r14,
 .card.hA,
 .card.♥A {
   background-image: url("../images/hearts/hearts-A.svg"); }
 
 .card.hearts.K,
+.card.r13,
 .card.hK,
 .card.♥K {
   background-image: url("../images/hearts/hearts-K.svg"); }
 
 .card.hearts.Q,
+.card.r12,
 .card.hQ,
 .card.♥Q {
   background-image: url("../images/hearts/hearts-Q.svg"); }
 
 .card.hearts.J,
+.card.r11,
 .card.hJ,
 .card.♥J {
   background-image: url("../images/hearts/hearts-J.svg"); }
@@ -176,21 +180,25 @@
   background-image: url("../images/hearts/hearts-r02.svg"); }
 
 .card.spades.A,
+.card.r14,
 .card.sA,
 .card.♠A {
   background-image: url("../images/spades/spades-A.svg"); }
 
 .card.spades.K,
+.card.r13,
 .card.sK,
 .card.♠K {
   background-image: url("../images/spades/spades-K.svg"); }
 
 .card.spades.Q,
+.card.r12,
 .card.sQ,
 .card.♠Q {
   background-image: url("../images/spades/spades-Q.svg"); }
 
 .card.spades.J,
+.card.r11,
 .card.sJ,
 .card.♠J {
   background-image: url("../images/spades/spades-J.svg"); }
@@ -241,21 +249,25 @@
   background-image: url("../images/spades/spades-r02.svg"); }
 
 .card.clubs.A,
+.card.r14,
 .card.cA,
 .card.♣A {
   background-image: url("../images/clubs/clubs-A.svg"); }
 
 .card.clubs.K,
+.card.r13,
 .card.cK,
 .card.♣K {
   background-image: url("../images/clubs/clubs-K.svg"); }
 
 .card.clubs.Q,
+.card.r12,
 .card.cQ,
 .card.♣Q {
   background-image: url("../images/clubs/clubs-Q.svg"); }
 
 .card.clubs.J,
+.card.r11,
 .card.cJ,
 .card.♣J {
   background-image: url("../images/clubs/clubs-J.svg"); }
