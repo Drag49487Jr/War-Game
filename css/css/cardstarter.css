@@ -42,21 +42,25 @@
     border: 0.15em dashed #daa520; }
 
 .card.diamonds.A,
+.card.r14,
 .card.dA,
 .card.♦A {
   background-image: url("../images/diamonds/diamonds-A.svg"); }
 
 .card.diamonds.K,
+.card.r13,
 .card.dK,
 .card.♦K {
   background-image: url("../images/diamonds/diamonds-K.svg"); }
 
 .card.diamonds.Q,
+.card.r12,
 .card.dQ,
 .card.♦Q {
   background-image: url("../images/diamonds/diamonds-Q.svg"); }
 
 .card.diamonds.J,
+.card.r11,
 .card.dJ,
 .card.♦J {
   background-image: url("../images/diamonds/diamonds-J.svg"); }
