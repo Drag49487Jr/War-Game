@@ -22,10 +22,8 @@ function shuffleDeck() {
   while (tempDeck.length) {
     var rndIdx = Math.floor(Math.random() * tempDeck.length);
     deck.push(tempDeck.splice(rndIdx, 1)[0]);
-   // cpuDeck.push(tempDeck.splice(rndIdx, 1)[0]);
 }
     return deck;
-  //renderDeckInContainer(playerDeck, shuffledContainer);
 }
 
 function splitDeck() {
@@ -43,24 +41,31 @@ function draw() {
     inPlay.push(playerDeck.pop());
     inPlay.push(cpuDeck.pop());
     console.log(inPlay);
-    
+    render();
 }
 
 function render(){
-    playerOne.innerHTML = inPlay[0].face;
-    cpu.innerHTML = inPlay[1].face;
+    playerOne.innerHTML = inPlay[0].value;
+    cpu.innerHTML = inPlay[1].value;
+    
+    renderCompareCards((inPlay[0]),(inPlay[1]));
 }
 
 
 function renderCompareCards(player,computer){
-    if(player > computer){
-        return true;
-    } if(player < computer) {
-        return false;
+    let pVal = player.value;
+    let cVal = computer.value;
+    if (pVal > cVal){
+        playerDeck.unshift(player, computer);
+       // console.log(true);
+    } else if (pVal < cVal){
+        cpuDeck.unshift(player, computer);
+        //console.log(false);
+    } else if (pVal === cVal){
+     console.log('draw');
     }
-    renderCompareCards(playerDeck.shift(), cpuDeck.shift());
-}
-
+     inPlay = [];
+ }
 
 
 
