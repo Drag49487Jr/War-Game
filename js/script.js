@@ -1,47 +1,76 @@
 /*----- constants -----*/
-var suits = ['s', 'c', 'd', 'h'];
+var suits = ['spades', 'clubs', 'diamonds', 'hearts'];
 var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K', 'A'];
 
 // build a 'master' deck of 'card' objects used to create shuffled decks
-var masterDeck = buildMasterDeck();
 //renderDeckInContainer(masterDeck, document.getElementById('master-deck-container'));
 
 /*----- app's state (variables) -----*/
-var shuffledDeck,playerDeck,cpuDeck;
-
+var playerDeck,cpuDeck,shuffledDeck,inPlay,masterDeck;
 /*----- cached element references -----*/
-var shuffledContainer = document.getElementById('shuffled-deck-container');
-
+var playerOne = document.getElementById('playerOne');
+var cpu = document.getElementById('computer');
 /*----- event listeners -----*/
-document.querySelector('button').addEventListener('click', renderShuffledDeck);
+document.querySelector('#draw').addEventListener('click', draw);
 /*----- functions -----*/
-function renderShuffledDeck() {
+
+init();
+function shuffleDeck() {
   var tempDeck = masterDeck.slice();
-  playerDeck = [];
-  cpuDeck = [];
+  deck = [];
+  //cpuDeck = [];
   while (tempDeck.length) {
     var rndIdx = Math.floor(Math.random() * tempDeck.length);
-    playerDeck.push(tempDeck.splice(rndIdx, 1)[0]);
-    cpuDeck.push(tempDeck.splice(rndIdx, 1)[0]);
-
-  }
-  renderDeckInContainer(playerDeck, shuffledContainer);
+    deck.push(tempDeck.splice(rndIdx, 1)[0]);
+   // cpuDeck.push(tempDeck.splice(rndIdx, 1)[0]);
+}
+    return deck;
+  //renderDeckInContainer(playerDeck, shuffledContainer);
 }
 
-function renderDeckInContainer(deck, container) {
-  container.innerHTML = '';
-  var cardsHtml = deck.reduce(function(html, card) {
-    return html + `<div class="card ${card.face}"></div>`;
-  }, '');
-  container.innerHTML = cardsHtml;
+function splitDeck() {
+    playerDeck = shuffledDeck.slice(0,26);
+    cpuDeck = shuffledDeck.slice(26,53);
 }
+
+function init(){
+    masterDeck = buildMasterDeck();
+    shuffledDeck = shuffleDeck();
+    inPlay = [];
+    splitDeck();
+}
+function draw() {
+    inPlay.push(playerDeck.pop());
+    inPlay.push(cpuDeck.pop());
+    console.log(inPlay);
+    
+}
+
+function render(){
+    playerOne.innerHTML = inPlay[0].face;
+    cpu.innerHTML = inPlay[1].face;
+}
+
+
+function renderCompareCards(player,computer){
+    if(player > computer){
+        return true;
+    } if(player < computer) {
+        return false;
+    }
+    renderCompareCards(playerDeck.shift(), cpuDeck.shift());
+}
+
+
+
+
 
 function buildMasterDeck() {
   var deck = [];
   suits.forEach(function(suit) {
     ranks.forEach(function(rank) {
       deck.push({
-        face: `${suit}${rank}`,
+        face: `${suit}-r${rank}`,
         value: Number(rank) || (rank === 'A' ? 11 : 10)
       });
     });
@@ -49,6 +78,6 @@ function buildMasterDeck() {
   return deck;
 }
 
-renderShuffledDeck();
+
 
 

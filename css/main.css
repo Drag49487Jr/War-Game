@@ -1,11 +1,28 @@
 body{
+    display:block;
+    margin: 0 auto;
+    
+}
+section{
+    float: left;
+    grid-column: span 2;
+}
+h1{
     display:flex;
-    flex-direction:column;
     justify-content: center;
-    align-items: center;
+    grid-column:span 2;
+}
+
+section .card-container{
+    display:block;
+    justify-content: center;
+    margin: 150px;
 }
 main{
     display:grid;
-    grid-template-columns:20vmin 30vmin;
-    grid-template-rows: 30vmin;
+    grid-template-rows: 20vmin 20vmin 20vmin 20vmin;
+}
+button{
+    grid:block;
+    margin:150px;
 }
