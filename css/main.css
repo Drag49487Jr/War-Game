@@ -26,3 +26,7 @@ button{
     grid:block;
     margin:150px;
 }
+#p-score, #c-score{
+    display:grid;
+    margin: -100px 0 0 0;
+}
