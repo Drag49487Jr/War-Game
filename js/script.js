@@ -12,6 +12,7 @@ var cpu = document.getElementById('computer');
 
 /*----- event listeners -----*/
 document.querySelector('#draw').addEventListener('click', draw);
+document.querySelector('#restart').addEventListener('click', reset);
 
 /*----- functions -----*/
 
@@ -93,4 +94,6 @@ function buildMasterDeck() {
 
 
 
-
+function reset(){
+    init();
+}
