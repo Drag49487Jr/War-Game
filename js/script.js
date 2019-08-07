@@ -11,6 +11,8 @@ var playerDeck, cpuDeck, shuffledDeck, inPlay, masterDeck,war,cardCounter;
 /*----- cached element references -----*/
 var playerOne = document.getElementById('playerOne');
 var cpu = document.getElementById('computer');
+var warPlayerOne = document.getElementById('warPlayerOne');
+var warComputer = document.getElementById('warComputer');
 
 /*----- event listeners -----*/
 document.querySelector('#draw').addEventListener('click', draw);
@@ -28,6 +30,7 @@ function shuffleDeck() {
 }
     return deck;
 }
+
 function renderScore() {
 cardCounter.player = (pScore.textContent = playerDeck.length);
 cardCounter.cpu = (cScore.textContent = cpuDeck.length);
@@ -45,19 +48,18 @@ function init(){
     shuffledDeck = shuffleDeck();
     inPlay = [];
     war = [];
-    splitDeck();
     cardCounter = {
         player: 0,
         cpu:0,
     };
-renderScore();
+    splitDeck();
+    renderScore();
 }
 
 function draw() {
     inPlay.push(playerDeck.pop());
     inPlay.push(cpuDeck.pop());
 
-    console.log(inPlay);
     render();
     renderScore();
 }
@@ -73,7 +75,6 @@ function render(){
 function renderCompareCards( player, computer,...warArry){
     let pVal = player.value;
     let cVal = computer.value;
-
         if (pVal > cVal){
         playerDeck.unshift(player, computer,...warArry);
             } else if (pVal < cVal){
@@ -85,29 +86,19 @@ function renderCompareCards( player, computer,...warArry){
  }
 
 function initWar(){
-    // create one war array,
-    // alert the client that war has been initiated
-    // push current hand into newly instantiated war array
-    // then we will split off three cards from each array, and push into war array
-    // * display the values from each player that are at stake from the war array
     war = [];
     for(i= 0 ; i <= 3; i++){ 
         war.push(playerDeck.pop(i));
         war.push(cpuDeck.pop(i)); 
     }
-    // this here will go bye bye =========
     inPlay.push(...war);
-   
+
+    warPlayerOne.innerHTML = inPlay[inPlay.length - 2].value;
+    warComputer.innerHTML = inPlay[inPlay.length -1].value;
+    warPlayerOne.innerHTML =  `<div class = "card ${inPlay[inPlay.length - 2].suit} ${inPlay[inPlay.length - 2].rank}"></div>`
+    warComputer.innerHTML =  `<div class = "card ${inPlay[inPlay.length - 1].suit} ${inPlay[inPlay.length - 1].rank}"></div>`
 renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
-    
-    
-    // after the new war array is filled with the "at stake cards" we will then call the draw method to get the cards to be compared to determines who will win the war
-    
-    // then pass the new draw values into the compare function 
-    // *** look into passing down object
 }
-
-
 
 function buildMasterDeck() {
   var deck = [];
@@ -122,8 +113,6 @@ function buildMasterDeck() {
   });
   return deck;
 }
-
-
 
 function reset(){
     init();
