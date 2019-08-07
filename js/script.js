@@ -3,8 +3,10 @@ var suits = ['spades', 'clubs', 'diamonds', 'hearts'];
 var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',];
 const playerRender = document.getElementById('playerOne');
 const cpuRender = document.getElementById('computer');
+const pScore = document.getElementById('p-score');
+const cScore = document.getElementById('c-score');
 /*----- app's state (variables) -----*/
-var playerDeck, cpuDeck, shuffledDeck, inPlay, masterDeck,war;
+var playerDeck, cpuDeck, shuffledDeck, inPlay, masterDeck,war,cardCounter;
 
 /*----- cached element references -----*/
 var playerOne = document.getElementById('playerOne');
@@ -26,7 +28,11 @@ function shuffleDeck() {
 }
     return deck;
 }
+function renderScore() {
+cardCounter.player = (pScore.textContent = playerDeck.length);
+cardCounter.cpu = (cScore.textContent = cpuDeck.length);
 
+}
 function splitDeck() {
     playerDeck = shuffledDeck.slice(0,26);
     cpuDeck = shuffledDeck.slice(26,53);
@@ -40,6 +46,11 @@ function init(){
     inPlay = [];
     war = [];
     splitDeck();
+    cardCounter = {
+        player: 0,
+        cpu:0,
+    };
+renderScore();
 }
 
 function draw() {
@@ -48,6 +59,7 @@ function draw() {
 
     console.log(inPlay);
     render();
+    renderScore();
 }
 
 function render(){
