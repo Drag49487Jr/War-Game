@@ -1,10 +1,10 @@
 /*----- constants -----*/
 var suits = ['spades', 'clubs', 'diamonds', 'hearts'];
-var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14'];
+var ranks = ['02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14',];
 const playerRender = document.getElementById('playerOne');
 const cpuRender = document.getElementById('computer');
 /*----- app's state (variables) -----*/
-var playerDeck,cpuDeck,shuffledDeck,inPlay,masterDeck;
+var playerDeck, cpuDeck, shuffledDeck, inPlay, masterDeck,war;
 
 /*----- cached element references -----*/
 var playerOne = document.getElementById('playerOne');
@@ -38,8 +38,10 @@ function init(){
     masterDeck = buildMasterDeck();
     shuffledDeck = shuffleDeck();
     inPlay = [];
+    war = [];
     splitDeck();
 }
+
 function draw() {
     inPlay.push(playerDeck.pop());
     inPlay.push(cpuDeck.pop());
@@ -56,27 +58,44 @@ function render(){
     renderCompareCards((inPlay[0]),(inPlay[1]));
 }
 
-function renderCompareCards(player,computer){
+function renderCompareCards( player, computer,...warArry){
     let pVal = player.value;
     let cVal = computer.value;
+
         if (pVal > cVal){
-        playerDeck.unshift(player, computer);
+        playerDeck.unshift(player, computer,...warArry);
             } else if (pVal < cVal){
-        cpuDeck.unshift(player, computer);
+        cpuDeck.unshift(player, computer,...warArry);
             } else if (pVal === cVal){
-        //initWar();
-     console.log('draw');
+        initWar();
     }
      inPlay = [];
  }
 
-/*function initWar(){
-    let playWar = playerDeck.splice();
-    let cpuWar = cpuDeck.splice();
-        inPlay.push();
-        inPlay.pu
+function initWar(){
+    // create one war array,
+    // alert the client that war has been initiated
+    // push current hand into newly instantiated war array
+    // then we will split off three cards from each array, and push into war array
+    // * display the values from each player that are at stake from the war array
+    war = [];
+    for(i= 0 ; i <= 3; i++){ 
+        war.push(playerDeck.pop(i));
+        war.push(cpuDeck.pop(i)); 
+    }
+    // this here will go bye bye =========
+    inPlay.push(...war);
+   
+renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
+    
+    
+    // after the new war array is filled with the "at stake cards" we will then call the draw method to get the cards to be compared to determines who will win the war
+    
+    // then pass the new draw values into the compare function 
+    // *** look into passing down object
 }
-*/
+
+
 
 function buildMasterDeck() {
   var deck = [];
