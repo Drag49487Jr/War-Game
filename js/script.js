@@ -71,19 +71,25 @@ function render(){
     cpu.innerHTML = `<div class = "card ${inPlay[1].suit} ${inPlay[1].rank}"></div>`;
     renderCompareCards((inPlay[0]),(inPlay[1]));
 }
+function renderWarCards(){
+    warPlayerOne.innerHTML = inPlay[inPlay.length - 2].value;
+    warComputer.innerHTML = inPlay[inPlay.length -1].value;
+    warPlayerOne.innerHTML =  `<div class = "card ${inPlay[inPlay.length - 2].suit} ${inPlay[inPlay.length - 2].rank}"></div>`;
+    warComputer.innerHTML =  `<div class = "card ${inPlay[inPlay.length - 1].suit} ${inPlay[inPlay.length - 1].rank}"></div>`;
+}
 
 function renderCompareCards( player, computer,...warArry){
     let pVal = player.value;
     let cVal = computer.value;
-        if (pVal > cVal){
+    if (pVal > cVal){
         playerDeck.unshift(player, computer,...warArry);
-            } else if (pVal < cVal){
+    } else if (pVal < cVal){
         cpuDeck.unshift(player, computer,...warArry);
-            } else if (pVal === cVal){
+    } else if (pVal === cVal){
         initWar();
     }
-     inPlay = [];
- }
+    inPlay = [];
+}
 
 function initWar(){
     war = [];
@@ -92,12 +98,9 @@ function initWar(){
         war.push(cpuDeck.pop(i)); 
     }
     inPlay.push(...war);
-
-    warPlayerOne.innerHTML = inPlay[inPlay.length - 2].value;
-    warComputer.innerHTML = inPlay[inPlay.length -1].value;
-    warPlayerOne.innerHTML =  `<div class = "card ${inPlay[inPlay.length - 2].suit} ${inPlay[inPlay.length - 2].rank}"></div>`
-    warComputer.innerHTML =  `<div class = "card ${inPlay[inPlay.length - 1].suit} ${inPlay[inPlay.length - 1].rank}"></div>`
-renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
+    
+    renderWarCards();
+    renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
 }
 
 function buildMasterDeck() {

@@ -1,32 +1,29 @@
 body{
-    display:block;
-    margin: 0 auto;
-    
-}
-section{
-    float: left;
-    grid-column: span 2;
-}
-h1{
     display:flex;
     justify-content: center;
-    grid-column:span 2;
+    margin-left:25vmin;
 }
-
-section .card-container{
-    display:block;
-    justify-content: center;
-    margin: 150px;
+h1{
+    font-stretch: ultra-expanded;
+    writing-mode: vertical-rl;
+    font-size: 110px;
+    margin-left: -200px;
 }
 main{
-    display:grid;
-    grid-template-rows: 20vmin 20vmin 20vmin 20vmin;
+    display: grid;
+    justify-content: center;
+    font-size:40px;
 }
-button{
-    grid:block;
-    margin:150px;
+footer{
+    display: grid;
+    margin-left:10vmin;
 }
-#p-score, #c-score{
-    display:grid;
-    margin: -100px 0 0 0;
+.p-display{
+    width:150px;
+}
+.war-display{
+    grid-template-columns: 10vmin 10vmin;
+    justify-content: center;
+    margin-top:49vmin;
+    margin-right:5vmin;
 }
