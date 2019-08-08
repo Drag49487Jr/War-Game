@@ -24,6 +24,24 @@ document.querySelector('#declare').addEventListener('click', winner);
 /*----- functions -----*/
 
 init();
+
+    function init(){
+        playerRender.innerHTML = `<div class = "card back-red"></div>`
+        cpuRender.innerHTML = `<div class = "card back-red"></div>`
+        masterDeck = buildMasterDeck();
+        shuffledDeck = shuffleDeck();
+        inPlay = [];
+        war = [];
+        cardCounter = {
+            player: 0,
+            cpu:0,
+        };
+        warPlayerOne.innerHTML = null;
+        warComputer.innerHTML = null;
+        splitDeck();
+        renderScore();
+    }
+
 function shuffleDeck() {
   var tempDeck = masterDeck.slice();
   deck = [];
@@ -44,24 +62,6 @@ function splitDeck() {
     cpuDeck = shuffledDeck.slice(26,53);
 }
 
-function init(){
-    playerRender.innerHTML = `<div class = "card back-red"></div>`
-    cpuRender.innerHTML = `<div class = "card back-red"></div>`
-    masterDeck = buildMasterDeck();
-    shuffledDeck = shuffleDeck();
-    inPlay = [];
-    war = [];
-    cardCounter = {
-        player: 0,
-        cpu:0,
-    };
-    warPlayerOne.innerHTML = null;
-    warComputer.innerHTML = null;
-
-    splitDeck();
-    renderScore();
-
-}
 
 function draw() {
     inPlay.push(playerDeck.pop());
@@ -79,6 +79,7 @@ function render(){
     cpu.innerHTML = `<div class = "card ${inPlay[1].suit} ${inPlay[1].rank}"></div>`;
     renderCompareCards((inPlay[0]),(inPlay[1]));
 }
+
 function renderWarCards(){
     warPlayerOne.innerHTML = inPlay[inPlay.length - 2].value;
     warComputer.innerHTML = inPlay[inPlay.length -1].value;
@@ -95,7 +96,6 @@ function renderCompareCards( player, computer,...warArry){
         cpuDeck.unshift(player, computer,...warArry)
     } else if (pVal === cVal){
         initWar();
-        prompt('War Has Started');
     }
     inPlay = [];
 }
