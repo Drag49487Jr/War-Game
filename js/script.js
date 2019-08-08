@@ -17,6 +17,7 @@ var warComputer = document.getElementById('warComputer');
 /*----- event listeners -----*/
 document.querySelector('#draw').addEventListener('click', draw);
 document.querySelector('#restart').addEventListener('click', reset);
+document.querySelector('#declare').addEventListener('click', winner);
 
 /*----- functions -----*/
 
@@ -90,7 +91,6 @@ function renderCompareCards( player, computer,...warArry){
         prompt('War Has Started');
     }
     inPlay = [];
-    winner();
 }
 
 
