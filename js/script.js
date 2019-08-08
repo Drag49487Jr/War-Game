@@ -13,6 +13,8 @@ var playerOne = document.getElementById('playerOne');
 var cpu = document.getElementById('computer');
 var warPlayerOne = document.getElementById('warPlayerOne');
 var warComputer = document.getElementById('warComputer');
+var messagePlay = document.querySelector('#playerOne');
+var messageCom = document.querySelector('#computer');
 
 /*----- event listeners -----*/
 document.querySelector('#draw').addEventListener('click', draw);
@@ -53,14 +55,19 @@ function init(){
         player: 0,
         cpu:0,
     };
+    warPlayerOne.innerHTML = null;
+    warComputer.innerHTML = null;
+
     splitDeck();
     renderScore();
+
 }
 
 function draw() {
     inPlay.push(playerDeck.pop());
     inPlay.push(cpuDeck.pop());
-
+    warPlayerOne.innerHTML = `<div></div>`;
+    warComputer.innerHTML = `<div></div>`;
     render();
     renderScore();
 }
@@ -93,7 +100,6 @@ function renderCompareCards( player, computer,...warArry){
     inPlay = [];
 }
 
-
 function initWar(){
     war = [];
     for(i= 0 ; i <= 3; i++){ 
@@ -105,10 +111,10 @@ function initWar(){
     renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
 }
 function winner(){
-    if (playerDeck.length > cpuDeck.length) {
-        prompt('Player has Won')
+    if (playerDeck.length > cpuDeck.length || cpuDeck.length === 0) {
+        messagePlay.textContent = 'Player Won';
     } else {
-        prompt('Computer has Won')
+        messageCom.textContent = 'Computer Won';
     };
 };
 function buildMasterDeck() {
