@@ -9,6 +9,7 @@ h1{
     writing-mode: vertical-rl;
     font-size: 110px;
     margin-left: -200px;
+    margin-right:400px;
 }
 main{
     display: grid;

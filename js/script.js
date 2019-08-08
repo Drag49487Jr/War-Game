@@ -82,10 +82,11 @@ function renderCompareCards( player, computer,...warArry){
     let pVal = player.value;
     let cVal = computer.value;
     if (pVal > cVal){
-        playerDeck.unshift(player, computer,...warArry);
+        playerDeck.unshift(player, computer,...warArry)
     } else if (pVal < cVal){
-        cpuDeck.unshift(player, computer,...warArry);
+        cpuDeck.unshift(player, computer,...warArry)
     } else if (pVal === cVal){
+        prompt('War Has Started');
         initWar();
     }
     inPlay = [];
@@ -98,7 +99,6 @@ function initWar(){
         war.push(cpuDeck.pop(i)); 
     }
     inPlay.push(...war);
-    
     renderWarCards();
     renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
 }
