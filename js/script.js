@@ -13,9 +13,9 @@ var playerOne = document.getElementById('playerOne');
 var cpu = document.getElementById('computer');
 var warPlayerOne = document.getElementById('warPlayerOne');
 var warComputer = document.getElementById('warComputer');
-var messagePlay = document.querySelector('#playerOne');
-var messageCom = document.querySelector('#computer');
-
+var messagePlay = document.querySelector('.title');
+var messageCom = document.querySelector('.titleComp');
+var messageWar = document.getElementById('war');
 /*----- event listeners -----*/
 document.querySelector('#draw').addEventListener('click', draw);
 document.querySelector('#restart').addEventListener('click', reset);
@@ -30,6 +30,9 @@ init();
         cpuRender.innerHTML = `<div class = "card back-red"></div>`
         masterDeck = buildMasterDeck();
         shuffledDeck = shuffleDeck();
+        messagePlay.textContent = 'Player';
+        messageCom.textContent = 'Computer';
+        messageWar.innerHTML = null;
         inPlay = [];
         war = [];
         cardCounter = {
@@ -67,6 +70,7 @@ function draw() {
     inPlay.push(cpuDeck.pop());
     warPlayerOne.innerHTML = `<div></div>`;
     warComputer.innerHTML = `<div></div>`;
+    messageWar.innerHTML = null;
     render();
     renderScore();
 }
@@ -95,10 +99,10 @@ function renderCompareCards( player, computer,...warArry){
         initWar();
     }
     inPlay = [];
-    winner();
 }
 
 function initWar(){
+    messageWar.innerHTML = 'WAR INITIATED';
     war = [];
     for(i= 0 ; i <= 3; i++){ 
         war.push(playerDeck.pop(i));
@@ -109,12 +113,6 @@ function initWar(){
     renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
 }
 
-
-
-
-
-
-
 function winner(){
     if (playerDeck.length > cpuDeck.length || cpuDeck.length === 0) {
         messagePlay.textContent = 'Player Won';
@@ -122,6 +120,7 @@ function winner(){
         messageCom.textContent = 'Computer Won';
     };
 };
+
 function buildMasterDeck() {
   var deck = [];
   suits.forEach(function(suit) {

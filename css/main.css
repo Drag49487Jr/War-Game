@@ -9,7 +9,7 @@ h1{
     writing-mode: vertical-rl;
     font-size: 110px;
     margin-left: -200px;
-    margin-right:400px;
+    margin-right:300px;
 }
 main{
     display: grid;
@@ -30,6 +30,12 @@ footer{
     margin-top:49vmin;
     margin-right:5vmin;
 }
-.title{
+.title, .titleComp{
     color:white;
 }
+#war{
+    font-size:80px;
+    writing-mode: vertical-rl;
+    transform:rotate(180deg);
+}
+
