@@ -62,7 +62,6 @@ function splitDeck() {
     cpuDeck = shuffledDeck.slice(26,53);
 }
 
-
 function draw() {
     inPlay.push(playerDeck.pop());
     inPlay.push(cpuDeck.pop());
@@ -73,8 +72,6 @@ function draw() {
 }
 
 function render(){
-    playerOne.innerHTML = inPlay[0].value;
-    cpu.innerHTML = inPlay[1].value;
     playerOne.innerHTML = `<div class = "card ${inPlay[0].suit} ${inPlay[0].rank}"></div>`;
     cpu.innerHTML = `<div class = "card ${inPlay[1].suit} ${inPlay[1].rank}"></div>`;
     renderCompareCards((inPlay[0]),(inPlay[1]));
@@ -98,6 +95,7 @@ function renderCompareCards( player, computer,...warArry){
         initWar();
     }
     inPlay = [];
+    winner();
 }
 
 function initWar(){
@@ -110,6 +108,13 @@ function initWar(){
     renderWarCards();
     renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
 }
+
+
+
+
+
+
+
 function winner(){
     if (playerDeck.length > cpuDeck.length || cpuDeck.length === 0) {
         messagePlay.textContent = 'Player Won';

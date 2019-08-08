@@ -1,5 +1,5 @@
 <h1>War Game</h1>
-
+![Imgur](https://i.imgur.com/TaucgDa.png)
 <h2>SETUP</h2>
     <p> This is a two player game that consist of a deck of 52 cards. The deck will shuffle itself then give each player 26 cards. The cards will be face down the entire time. There will be a scoreboard to keep track how many cards each player has left.<p>
 
