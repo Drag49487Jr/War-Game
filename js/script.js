@@ -86,11 +86,13 @@ function renderCompareCards( player, computer,...warArry){
     } else if (pVal < cVal){
         cpuDeck.unshift(player, computer,...warArry)
     } else if (pVal === cVal){
-        prompt('War Has Started');
         initWar();
+        prompt('War Has Started');
     }
     inPlay = [];
+    winner();
 }
+
 
 function initWar(){
     war = [];
@@ -102,7 +104,13 @@ function initWar(){
     renderWarCards();
     renderCompareCards( inPlay[inPlay.length - 2] , inPlay[inPlay.length - 1], ...war );
 }
-
+function winner(){
+    if (playerDeck.length > cpuDeck.length) {
+        prompt('Player has Won')
+    } else {
+        prompt('Computer has Won')
+    };
+};
 function buildMasterDeck() {
   var deck = [];
   suits.forEach(function(suit) {
