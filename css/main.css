@@ -8,8 +8,8 @@ h1{
     font-stretch: ultra-expanded;
     writing-mode: vertical-rl;
     font-size: 110px;
-    margin-left: -200px;
-    margin-right:300px;
+    margin-left: -250px;
+    margin-right:180px;
 }
 main{
     display: grid;
