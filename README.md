@@ -1,6 +1,7 @@
 <h1>War Game</h1>
 
 ![Imgur](https://i.imgur.com/mPoCxAH.png)
+Link to game => https://drag49487jr.github.io/War-Game/
 
 <h2>SETUP</h2>
     <p> This is a two player game that consist of a deck of 52 cards. The deck will shuffle itself then give each player 26 cards. The cards will be face down the entire time. There will be a scoreboard to keep track how many cards each player has left.The use of JavaScript will be used to make the game playable while using HTML to organize the elements on the page and CSS to make the game appealing.<p>
